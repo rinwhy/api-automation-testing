@@ -1,0 +1,10 @@
+{
+  "id": "regex:[\\d]",
+  "name": "Playstation 5",
+  "createdAt": "regex:[\\d]",
+  "data": {
+    "year": 2020,
+    "price": 500,
+    "Hard disk size": "1 TB"
+  }
+}
