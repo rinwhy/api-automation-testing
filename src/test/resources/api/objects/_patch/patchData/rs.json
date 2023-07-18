@@ -1,0 +1,9 @@
+{
+  "id": "regex:[\\d]",
+  "name": "type:String",
+  "data": {
+    "year": 2099,
+    "price": 0
+  },
+  "updatedAt": "regex:[\\d]"
+}

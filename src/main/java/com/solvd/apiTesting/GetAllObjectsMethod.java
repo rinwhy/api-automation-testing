@@ -10,7 +10,7 @@ import com.zebrunner.carina.utils.config.Configuration;
 
 
 @Endpoint(url = "https://api.${base_url}/objects", methodType = HttpMethodType.GET)
-@ResponseTemplatePath(path = "api/objects/_get/_allObjects/rs.json")
+@ResponseTemplatePath(path = "api/objects/_get/allObjects/rs.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
 
 public class GetAllObjectsMethod extends AbstractApiMethodV2 {
