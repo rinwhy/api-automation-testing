@@ -1,0 +1,10 @@
+{
+  "name": "Updated Product",
+  "data": {
+    "year": 2045,
+    "price": 9999,
+    "CPU model": "i100",
+    "Hard disk size": "9999 TB",
+    "color": "space gray"
+  }
+}
