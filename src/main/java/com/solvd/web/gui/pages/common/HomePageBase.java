@@ -17,4 +17,6 @@ public abstract class HomePageBase extends AbstractPage {
 
     public abstract void postATweetFromSideButton(String message);
     public abstract boolean checkTweetWasPosted();
+
+    public abstract ProfilePageBase openProfile();
 }

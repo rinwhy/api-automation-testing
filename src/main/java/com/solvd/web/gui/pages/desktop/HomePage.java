@@ -1,12 +1,12 @@
 package com.solvd.web.gui.pages.desktop;
 
 import com.solvd.web.gui.pages.common.HomePageBase;
+import com.solvd.web.gui.pages.common.ProfilePageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-
 
 
 @DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = HomePageBase.class)
@@ -27,6 +27,9 @@ public class HomePage extends HomePageBase {
     @FindBy(xpath = "//span[text()='Your Tweet was sent.']")
     private ExtendedWebElement tweetUploadConfirmationPopUp;
 
+    @FindBy(xpath = "//a[@aria-label='Profile']")
+    private ExtendedWebElement profileButton;
+
     public HomePage(WebDriver driver) {
         super(driver);
         setUiLoadedMarker(homeTextHeading);
@@ -44,5 +47,12 @@ public class HomePage extends HomePageBase {
     public boolean checkTweetWasPosted() {
         return tweetUploadConfirmationPopUp.isPresent();
     }
+
+    @Override
+    public ProfilePageBase openProfile() {
+        profileButton.click();
+        return initPage(driver, ProfilePageBase.class);
+    }
+
 
 }

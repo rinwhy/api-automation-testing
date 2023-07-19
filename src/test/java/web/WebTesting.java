@@ -2,6 +2,7 @@ package web;
 
 import com.solvd.web.gui.pages.common.HomePageBase;
 import com.solvd.web.gui.pages.common.LoginPageBase;
+import com.solvd.web.gui.pages.common.ProfilePageBase;
 import com.zebrunner.carina.utils.R;
 import com.zebrunner.carina.webdriver.decorator.PageOpeningStrategy;
 import org.testng.Assert;
@@ -16,7 +17,7 @@ public class WebTesting implements IAbstractTest {
 
     @Test
     public void testProperties() {
-        System.out.println(R.TESTDATA.getProperties());
+        System.out.println(R.CONFIG.getProperties());
     }
 
 
@@ -41,10 +42,17 @@ public class WebTesting implements IAbstractTest {
         Assert.assertTrue(homePage.checkTweetWasPosted(), "Tweet was not posted successfully");
     }
 
-    @Test(testName = "Delete a Tweet", dependsOnMethods = "postATweet", description = "Testing for successful deletion of a tweet from your account")
+    @Test(testName = "Delete a Tweet", dependsOnMethods = "login", description = "Testing for successful deletion of a tweet from your account")
     @MethodOwner(owner = "Rin")
     public void deleteATweet() {
 
+        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
+        homePage.postATweetFromSideButton("Post to be deleted");
+        Assert.assertTrue(homePage.checkTweetWasPosted(), "Tweet was not posted successfully");
+
+        ProfilePageBase profilePage = homePage.openProfile();
+        profilePage.deleteTweet();
+        Assert.assertTrue(profilePage.checkTweetWasDeleted(), "Tweet was not deleted successfully");
     }
 
 
