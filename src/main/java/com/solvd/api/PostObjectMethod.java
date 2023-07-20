@@ -1,4 +1,4 @@
-package com.solvd.apiTesting;
+package com.solvd.api;
 
 import com.zebrunner.carina.api.AbstractApiMethodV2;
 import com.zebrunner.carina.api.annotation.Endpoint;
@@ -9,15 +9,15 @@ import com.zebrunner.carina.api.http.HttpMethodType;
 import com.zebrunner.carina.api.http.HttpResponseStatusType;
 import com.zebrunner.carina.utils.config.Configuration;
 
-@Endpoint(url = "https://api.${base_url}/objects/${id}", methodType = HttpMethodType.PUT)
-@RequestTemplatePath(path = "api/objects/_put/rq.json")
-@ResponseTemplatePath(path = "api/objects/_put/rs.json")
+@Endpoint(url = "https://api.${base_url}/objects", methodType = HttpMethodType.POST)
+@RequestTemplatePath(path = "api/objects/_post/rq.json")
+@ResponseTemplatePath(path = "api/objects/_post/rs.json")
 @SuccessfulHttpStatus(status = HttpResponseStatusType.OK_200)
-public class UpdateObjectMethod extends AbstractApiMethodV2 {
 
-    public UpdateObjectMethod(String id) {
-        replaceUrlPlaceholder("base_url",Configuration.getRequired("api_url"));
-        replaceUrlPlaceholder("id", id);
+public class PostObjectMethod extends AbstractApiMethodV2 {
+
+    public PostObjectMethod() {
+        replaceUrlPlaceholder("base_url", Configuration.getRequired("api_url"));
+
     }
-
 }

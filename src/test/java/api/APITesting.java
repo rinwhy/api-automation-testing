@@ -1,5 +1,5 @@
-package API;
-import com.solvd.apiTesting.*;
+package api;
+import com.solvd.api.*;
 import com.zebrunner.carina.api.apitools.validation.JsonCompareKeywords;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
 import org.skyscreamer.jsonassert.JSONCompareMode;
