@@ -1,17 +1,10 @@
 package com.solvd.web.gui.pages.desktop;
 
-import java.lang.invoke.MethodHandles;
-import java.util.List;
-
 import com.solvd.web.gui.pages.common.HomePageBase;
 import com.solvd.web.gui.pages.common.LoginPageBase;
 import com.zebrunner.carina.utils.R;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
