@@ -1,5 +1,6 @@
 package com.solvd.web.gui.pages.desktop;
 
+import com.solvd.web.gui.pages.common.ExplorePageBase;
 import com.solvd.web.gui.pages.common.HomePageBase;
 import com.solvd.web.gui.pages.common.ProfilePageBase;
 import org.openqa.selenium.WebDriver;
@@ -27,8 +28,13 @@ public class HomePage extends HomePageBase {
     @FindBy(xpath = "//span[text()='Your Tweet was sent.']")
     private ExtendedWebElement tweetUploadConfirmationPopUp;
 
-    @FindBy(xpath = "//a[@aria-label='Profile']")
+    @FindBy(xpath = "//a[@data-testid='AppTabBar_Profile_Link']")
     private ExtendedWebElement profileButton;
+
+    @FindBy(xpath = "//a[@data-testid='AppTabBar_Explore_Link']")
+    private ExtendedWebElement exploreButton;
+
+
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -49,10 +55,15 @@ public class HomePage extends HomePageBase {
     }
 
     @Override
-    public ProfilePageBase openProfile() {
+    public ProfilePageBase openProfilePage() {
         profileButton.click();
         return initPage(driver, ProfilePageBase.class);
     }
 
+    @Override
+    public ExplorePageBase openExplorePage() {
+        exploreButton.click();
+        return initPage(driver, ExplorePageBase.class);
+    }
 
 }

@@ -13,7 +13,11 @@ public abstract class ProfilePageBase extends AbstractPage {
     }
 
 
-    public abstract void deleteTweet();
+    public abstract void deleteTweet(String message);
 
     public abstract boolean checkTweetWasDeleted();
+
+    public abstract void editProfileBio(String message);
+
+    public abstract boolean checkBioWasUpdated(String message);
 }
