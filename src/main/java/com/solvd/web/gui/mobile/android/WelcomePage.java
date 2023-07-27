@@ -14,7 +14,7 @@ public class WelcomePage extends WelcomePageBase {
 
 
 
-    protected WelcomePage(WebDriver driver) {
+    public WelcomePage(WebDriver driver) {
         super(driver);
     }
 

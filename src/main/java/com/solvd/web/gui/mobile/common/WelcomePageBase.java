@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class WelcomePageBase extends AbstractPage {
 
 
-    protected WelcomePageBase(WebDriver driver) {
+    public WelcomePageBase(WebDriver driver) {
         super(driver);
     }
 
