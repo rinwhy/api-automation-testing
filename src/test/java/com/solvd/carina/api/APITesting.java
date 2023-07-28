@@ -1,4 +1,4 @@
-package com.solvd.api;
+package com.solvd.carina.api;
 
 import com.zebrunner.carina.api.apitools.validation.JsonCompareKeywords;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;

@@ -1,6 +1,6 @@
-package com.solvd.web.gui.pages.desktop;
+package com.solvd.carina.web.pages.desktop;
 
-import com.solvd.web.gui.pages.common.ExplorePageBase;
+import com.solvd.carina.web.pages.common.ExplorePageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.Keys;

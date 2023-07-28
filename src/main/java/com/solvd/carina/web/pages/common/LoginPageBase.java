@@ -1,4 +1,4 @@
-package com.solvd.web.gui.pages.common;
+package com.solvd.carina.web.pages.common;
 
 import org.openqa.selenium.WebDriver;
 import com.zebrunner.carina.webdriver.decorator.PageOpeningStrategy;

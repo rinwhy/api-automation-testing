@@ -1,9 +1,9 @@
-package com.solvd.web;
+package com.solvd.carina.web;
 
-import com.solvd.web.gui.pages.common.ExplorePageBase;
-import com.solvd.web.gui.pages.common.HomePageBase;
-import com.solvd.web.gui.pages.common.LoginPageBase;
-import com.solvd.web.gui.pages.common.ProfilePageBase;
+import com.solvd.carina.web.pages.common.ExplorePageBase;
+import com.solvd.carina.web.pages.common.HomePageBase;
+import com.solvd.carina.web.pages.common.ProfilePageBase;
+import com.solvd.carina.web.pages.common.LoginPageBase;
 import com.zebrunner.carina.utils.R;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;

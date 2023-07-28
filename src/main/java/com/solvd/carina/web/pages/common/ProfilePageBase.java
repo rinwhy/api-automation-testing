@@ -1,4 +1,4 @@
-package com.solvd.web.gui.pages.common;
+package com.solvd.carina.web.pages.common;
 
 import com.zebrunner.carina.webdriver.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;

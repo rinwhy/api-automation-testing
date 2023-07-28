@@ -1,8 +1,8 @@
-package com.solvd.web.gui.pages.desktop;
+package com.solvd.carina.web.pages.desktop;
 
-import com.solvd.web.gui.pages.common.ExplorePageBase;
-import com.solvd.web.gui.pages.common.HomePageBase;
-import com.solvd.web.gui.pages.common.ProfilePageBase;
+import com.solvd.carina.web.pages.common.HomePageBase;
+import com.solvd.carina.web.pages.common.ProfilePageBase;
+import com.solvd.carina.web.pages.common.ExplorePageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
