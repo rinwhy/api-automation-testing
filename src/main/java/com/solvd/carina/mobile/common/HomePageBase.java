@@ -15,6 +15,8 @@ public abstract class HomePageBase extends AbstractPage {
 
     public abstract void verifyImperialUnits();
 
+    public abstract void verifyStarIsPresentOnMainCard();
+
     public abstract void verifyTypeViewLayout();
 
     public abstract void openSideMenu();
@@ -22,4 +24,8 @@ public abstract class HomePageBase extends AbstractPage {
     public abstract void closeSideMenu();
 
     public abstract SettingsPageBase goToSettings();
+
+    public abstract PokemonDetailsPageBase goToDetailedPageOfPokemon(String pokemon);
+
+    public abstract BuildATeamPageBase goToBuildATeamPage();
 }

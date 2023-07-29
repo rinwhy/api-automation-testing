@@ -1,6 +1,8 @@
 package com.solvd.carina.mobile.android;
 
+import com.solvd.carina.mobile.common.BuildATeamPageBase;
 import com.solvd.carina.mobile.common.HomePageBase;
+import com.solvd.carina.mobile.common.PokemonDetailsPageBase;
 import com.solvd.carina.mobile.common.SettingsPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
@@ -39,6 +41,11 @@ public class HomePage extends HomePageBase {
     @FindBy(xpath = "//android.widget.FrameLayout[@resource-id='com.goldex:id/cardBackground']")
     private ExtendedWebElement cardViewLayout;
 
+    @FindBy(xpath = "//*[@resource-id='com.goldex:id/mainBackground']//*[@resource-id='com.goldex:id/favorite']")
+    private ExtendedWebElement favoriteStarOnMainCard;
+
+    @ExtendedFindBy(accessibilityId = "Team Builder")
+    private ExtendedWebElement teamBuilderButton;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -58,8 +65,7 @@ public class HomePage extends HomePageBase {
         searchBar.click();
         searchBar.type(searchQuery);
         driver.navigate().back();
-        Assert.assertTrue(searchResultPokemon.format(searchQuery).isPresent());
-        searchResultPokemon.format(searchQuery).click();
+        goToDetailedPageOfPokemon(searchQuery);
     }
 
     @Override
@@ -69,10 +75,18 @@ public class HomePage extends HomePageBase {
         Assert.assertTrue(text.contains("lbs"));
     }
 
+
+    @Override
+    public void verifyStarIsPresentOnMainCard() {
+        Assert.assertTrue(favoriteStarOnMainCard.isElementPresent());
+    }
+
     @Override
     public void verifyTypeViewLayout() {
         Assert.assertTrue(typeViewLayout.isElementPresent());
     }
+
+
 
     @Override
     public void openSideMenu() {
@@ -96,6 +110,19 @@ public class HomePage extends HomePageBase {
         menuButton.click();
         settingsButtonInMenu.click();
         return initPage(getDriver(), SettingsPageBase.class);
+    }
+
+    @Override
+    public PokemonDetailsPageBase goToDetailedPageOfPokemon(String pokemon) {
+        Assert.assertTrue(searchResultPokemon.format(pokemon).isPresent());
+        searchResultPokemon.format(pokemon).click();
+        return initPage(getDriver(), PokemonDetailsPageBase.class);
+    }
+
+    @Override
+    public BuildATeamPageBase goToBuildATeamPage() {
+        teamBuilderButton.click();
+        return initPage(getDriver(), BuildATeamPageBase.class);
     }
 
 

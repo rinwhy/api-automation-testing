@@ -23,6 +23,9 @@ public class SettingsPage extends SettingsPageBase {
     @ExtendedFindBy(text = "Type View")
     private ExtendedWebElement typeViewSelection;
 
+    @FindBy(xpath = "//*[@resource-id='com.goldex:id/toolbar']//*[@text='Settings']")
+    private ExtendedWebElement settingsHeading;
+
     public SettingsPage(WebDriver driver) {
         super(driver);
     }
@@ -50,6 +53,8 @@ public class SettingsPage extends SettingsPageBase {
     }
 
 
-
-
+    @Override
+    public boolean isPageOpened() {
+        return settingsHeading.isElementPresent();
+    }
 }
