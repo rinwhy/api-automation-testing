@@ -1,13 +1,10 @@
-package com.solvd.carina.web.pages.desktop;
+package com.solvd.carina.web.pages.mobile;
 
-import com.solvd.carina.web.pages.common.HomePageBase;
 import com.solvd.carina.web.pages.common.LoginPageBase;
-import com.zebrunner.carina.utils.R;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 
-import com.zebrunner.carina.utils.factory.DeviceType;
-
-@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = LoginPageBase.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = LoginPageBase.class)
 public class LoginPage extends LoginPageBase {
 
 
@@ -26,5 +23,10 @@ public class LoginPage extends LoginPageBase {
 //
 //        return initPage(driver, HomePageBase.class);
 //    }
+
+    @Override
+    public void open() {
+        super.open();
+    }
 
 }
