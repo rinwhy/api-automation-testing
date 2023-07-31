@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="MobileWebTest">
+
+    <test name="Twitter Automation Mobile Web" preserve-order="false">
+        <classes>
+            <class name="com.solvd.carina.web.WebTesting">
+                <methods>
+                    <include name="login"/>
+                    <include name="postATweet"/>
+                    <include name="deleteATweet"/>
+                    <include name="editUserProfileBio"/>
+                    <include name="searchTwitterUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
