@@ -19,6 +19,9 @@ public class HomePage extends HomePageBase {
     @FindBy(xpath = "//div[@aria-label='Profile menu rin_QA']")
     private ExtendedWebElement profileIcon;
 
+    @FindBy(xpath = "//a[@href='/QA_2408']//span[text()='Profile']")
+    private ExtendedWebElement profileLink;
+
     public HomePage(WebDriver driver) {
         super(driver);
         setUiLoadedMarker(forYouTab);
@@ -36,6 +39,7 @@ public class HomePage extends HomePageBase {
     @Override
     public ProfilePageBase openProfilePage() {
         profileIcon.click();
+        profileLink.click();
         return initPage(getDriver(), ProfilePageBase.class);
     }
 

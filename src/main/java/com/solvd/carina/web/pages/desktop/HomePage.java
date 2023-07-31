@@ -23,8 +23,7 @@ public class HomePage extends HomePageBase {
     @FindBy(xpath = "//a[@data-testid='AppTabBar_Profile_Link']")
     private ExtendedWebElement profileButton;
 
-    @FindBy(xpath = "//a[@href='/QA_2408']//span[text()='Profile']")
-    private ExtendedWebElement profileLink;
+
 
 
     public HomePage(WebDriver driver) {
@@ -44,7 +43,6 @@ public class HomePage extends HomePageBase {
     @Override
     public ProfilePageBase openProfilePage() {
         profileButton.click();
-        profileLink.click();
         return initPage(driver, ProfilePageBase.class);
     }
 

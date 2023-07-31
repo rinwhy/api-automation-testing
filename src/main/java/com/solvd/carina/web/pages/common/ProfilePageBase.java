@@ -32,7 +32,7 @@ public abstract class ProfilePageBase extends AbstractPage {
     @FindBy(xpath = "//div[@data-testid='Profile_Save_Button']")
     protected ExtendedWebElement profileSaveButton;
 
-    @FindBy(xpath = "//div[@data-testid='UserDescription']//span[text()='test']")
+    @FindBy(xpath = "//div[@data-testid='UserDescription']//span[text()='%s']")
     private ExtendedWebElement profileBioText;
 
     public ProfilePageBase(WebDriver driver) {

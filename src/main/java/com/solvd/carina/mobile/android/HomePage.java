@@ -56,7 +56,6 @@ public class HomePage extends HomePageBase {
     public void searchForPokemon(String searchQuery) {
         searchBar.click();
         searchBar.type(searchQuery);
-        driver.navigate().back();
         Assert.assertTrue(searchResultPokemon.format(searchQuery).isPresent());
     }
 
@@ -64,7 +63,6 @@ public class HomePage extends HomePageBase {
     public void searchAndClickPokemon(String searchQuery) {
         searchBar.click();
         searchBar.type(searchQuery);
-        driver.navigate().back();
         goToDetailedPageOfPokemon(searchQuery);
     }
 

@@ -11,7 +11,7 @@ import com.zebrunner.carina.utils.mobile.IMobileUtils;
 
 
 @MethodOwner(owner = "Rin")
-public class AndroidTesting implements IAbstractTest, IMobileUtils {
+public class AndroidAppTesting implements IAbstractTest, IMobileUtils {
 
     @BeforeMethod
     public void beforeMethod() {
