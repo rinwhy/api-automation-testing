@@ -46,7 +46,7 @@ public class WebTesting implements IAbstractTest {
 
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         homePage.assertPageOpened();
-        homePage.postATweetFromSideButton(tweetString);
+        homePage.postATweet(tweetString);
 
         Assert.assertTrue(homePage.checkTweetWasPosted(), "Tweet was not posted successfully");
     }
@@ -54,11 +54,11 @@ public class WebTesting implements IAbstractTest {
     @Test(testName = "Delete a Tweet", groups = {"LoginRequired"}, description = "Testing for successful deletion of a tweet from your account")
     @MethodOwner(owner = "Rin")
     public void deleteATweet() {
-        String tweetString = "A new Tweet to be deleted";
+        String tweetString = "Another new Tweet to be deleted \n" + LocalDateTime.now();
 
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         homePage.assertPageOpened();
-        homePage.postATweetFromSideButton(tweetString);
+        homePage.postATweet(tweetString);
         Assert.assertTrue(homePage.checkTweetWasPosted(), "Tweet was not posted successfully");
 
         ProfilePageBase profilePage = homePage.openProfilePage();

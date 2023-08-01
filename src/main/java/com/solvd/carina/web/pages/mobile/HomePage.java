@@ -1,30 +1,26 @@
-package com.solvd.carina.web.pages.desktop;
+package com.solvd.carina.web.pages.mobile;
 
 import com.solvd.carina.web.pages.common.HomePageBase;
 import com.solvd.carina.web.pages.common.ProfilePageBase;
-import com.solvd.carina.web.pages.common.ExplorePageBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
+import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-import com.zebrunner.carina.utils.factory.DeviceType;
-import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
-
-
-@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = HomePageBase.class)
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = HomePageBase.class)
 public class HomePage extends HomePageBase {
-
 
     @FindBy(xpath = "//a[@href='/compose/tweet']")
     private ExtendedWebElement composeTweetButton;
 
-    @FindBy(xpath = "//div[@role='textbox']")
+    @FindBy(xpath = "//textarea[@aria-label='Tweet text']")
     private ExtendedWebElement tweetInputField;
 
-    @FindBy(xpath = "//a[@data-testid='AppTabBar_Profile_Link']")
-    private ExtendedWebElement profileButton;
+    @FindBy(xpath = "//div[@aria-label='Profile menu rin_QA']")
+    private ExtendedWebElement profileIcon;
 
-
-
+    @FindBy(xpath = "//a[@href='/QA_2408']//span[text()='Profile']")
+    private ExtendedWebElement profileLink;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -42,8 +38,9 @@ public class HomePage extends HomePageBase {
 
     @Override
     public ProfilePageBase openProfilePage() {
-        profileButton.click();
-        return initPage(driver, ProfilePageBase.class);
+        profileIcon.click();
+        profileLink.click();
+        return initPage(getDriver(), ProfilePageBase.class);
     }
 
 

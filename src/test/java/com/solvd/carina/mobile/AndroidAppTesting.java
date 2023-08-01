@@ -1,8 +1,6 @@
 package com.solvd.carina.mobile;
 
-import com.solvd.carina.mobile.common.HomePageBase;
-import com.solvd.carina.mobile.common.SettingsPageBase;
-import com.solvd.carina.mobile.common.WelcomePageBase;
+import com.solvd.carina.mobile.common.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,7 +11,7 @@ import com.zebrunner.carina.utils.mobile.IMobileUtils;
 
 
 @MethodOwner(owner = "Rin")
-public class AndroidTesting implements IAbstractTest, IMobileUtils {
+public class AndroidAppTesting implements IAbstractTest, IMobileUtils {
 
     @BeforeMethod
     public void beforeMethod() {
@@ -25,11 +23,9 @@ public class AndroidTesting implements IAbstractTest, IMobileUtils {
     }
 
 
-    @Test(testName = "Search a Pokemon" , description = "Search for a pokemon from the main menu")
+    @Test(testName = "Search a Pokemon", description = "Search for a pokemon from the main menu")
     public void searchBarTest() {
-
         String pokemonToSearch = "Lugia";
-
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         homePage.searchForPokemon(pokemonToSearch);
     }
@@ -38,6 +34,7 @@ public class AndroidTesting implements IAbstractTest, IMobileUtils {
     public void changeToImperialUnitsTest() {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         SettingsPageBase settingsPage = homePage.goToSettings();
+        Assert.assertTrue(settingsPage.isPageOpened());
         settingsPage.toggleToImperialUnits();
 
         homePage = settingsPage.exitSettings();
@@ -50,7 +47,7 @@ public class AndroidTesting implements IAbstractTest, IMobileUtils {
     public void changetoTypeViewLayoutTest() {
         HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
         SettingsPageBase settingsPage = homePage.goToSettings();
-
+        Assert.assertTrue(settingsPage.isPageOpened());
         settingsPage.switchToTypeView();
 
         homePage = settingsPage.exitSettings();
@@ -59,7 +56,29 @@ public class AndroidTesting implements IAbstractTest, IMobileUtils {
         homePage.verifyTypeViewLayout();
     }
 
+    @Test(testName = "Favorite a Pokemon", description = "Favorites the pokemon specified")
+    public void favoriteAPokemonTest() {
+        String pokemon = "Lugia";
+        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
+        homePage.searchForPokemon(pokemon);
 
+        PokemonDetailsPageBase pkmDetailPage = homePage.goToDetailedPageOfPokemon(pokemon);
+        Assert.assertTrue(pkmDetailPage.isPageOpened());
+
+        pkmDetailPage.favoriteThePokemon();
+        pkmDetailPage.backToHomePage();
+
+        homePage.verifyStarIsPresentOnMainCard();
+    }
+
+    @Test(testName = "Auto build team", description = "Auto builds a pokemon team and saves it")
+    public void autoBuildATeam(){
+        HomePageBase homePage = initPage(getDriver(), HomePageBase.class);
+        BuildATeamPageBase buildTeamPage = homePage.goToBuildATeamPage();
+        Assert.assertTrue(buildTeamPage.isPageOpened());
+
+        buildTeamPage.autoBuildATeam();
+    }
 
 
 }
