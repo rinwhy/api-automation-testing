@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 
 public class WebTesting implements IAbstractTest {
 
-
     @BeforeMethod(onlyForGroups = {"LoginRequired"})
     public void beforeMethod() {
         LoginPageBase loginPage = initPage(getDriver(), LoginPageBase.class);
